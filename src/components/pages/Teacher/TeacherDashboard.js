@@ -8,16 +8,11 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
-import HeadmasterHome from './HeadmasterHome';
+import TeacherHome from './TeacherHome';
+import TeacherProfile from '../Teacher/TeacherProfile';
+import TeacherProfileForm from '../Teacher/TeacherProfileForm';
 import StudentSearch from '../Student/StudentSearch';
-import Village from '../Village/Village.component.js';
-import VillageForm from '../Village/VillageForm.js';
-import Schools from '../School/Schools.component.js';
-import SchoolForm from '../School/SchoolForm.js';
-import HeadmasterProfile from './HeadmasterProfile/Profile.js';
-import ProfileForm from './HeadmasterProfile/ProfileForm.js';
-import MentorList from '../Mentor/MentorList.js';
-import { fetchHeadmasterProfile } from '../../../state/actions';
+import { fetchTeacherProfile } from '../../../state/actions';
 import { Drawer, Button } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
 import '../../../styles/Dashboard.css';
@@ -28,16 +23,14 @@ import {
   Dashboard,
 } from '../../../styles/Dashboard.style';
 import Logout from '../../Logout.js';
-import MentorPairings from './Mentees/Mentees.js';
-import Mentees from './Mentees/Mentees.js';
 
-const HeadmasterDashboard = props => {
+const TeacherDashboard = props => {
   const [visible, setVisible] = useState(true);
   const [desktop, setDesktop] = useState(true);
   const { profile } = props;
 
   useEffect(() => {
-    props.fetchHeadmasterProfile(1); // change this later with login
+    props.fetchTeacherProfile(1); // change this later with login
   }, []);
   console.log(profile);
 
@@ -69,24 +62,10 @@ const HeadmasterDashboard = props => {
     <div>
       <Dashboard>
         <Switch>
-          <Route path="/dashboard" component={HeadmasterHome} />
-          <Route path="/mentor-pairings" component={Mentees} />
-          <Route exact path="/profile" component={HeadmasterProfile} />
-          <Route path="/profile/edit/:id" component={ProfileForm} />
-          <Route path="/mentor-advisor" />
+          <Route exact path="/dashboard" component={TeacherHome} />
+          <Route exact path="/profile" component={TeacherProfile} />
+          <Route path="/profile/edit/:id" component={TeacherProfileForm} />
           <Route path="/student-search" component={StudentSearch} />
-          <Route path="/mentor-advisor" component={MentorList} />
-          <Route path="/school-village">
-            <Village />
-            <Schools />
-          </Route>
-          <Route
-            exact
-            path="/village/edit/:villageId"
-            component={VillageForm}
-          />
-          <Route exact path="/school/edit/:schoolId" component={SchoolForm} />
-          <Route path="/library" />
           <Route path="/logout" component={Logout} />
         </Switch>
       </Dashboard>
@@ -119,7 +98,7 @@ const HeadmasterDashboard = props => {
             Hello,{' '}
             <span
               style={{ color: ' #FF914D' }}
-            >{`Headmaster ${profile.last_name}`}</span>
+            >{`${profile.first_name} ${profile.last_name}`}</span>
           </h2>
 
           <NavLink to="/dashboard" onClick={() => setVisible(true)}>
@@ -127,18 +106,6 @@ const HeadmasterDashboard = props => {
           </NavLink>
           <NavLink to="/profile" onClick={() => setVisible(true)}>
             <button className="btn l2-btn menuLinks">Profile</button>
-          </NavLink>
-          <NavLink to={'/mentor-pairings'} onClick={() => setVisible(true)}>
-            <button className="btn l2-btn menuLinks">Mentor Pairings</button>
-          </NavLink>
-          <NavLink to="/mentor-advisor" onClick={() => setVisible(true)}>
-            <button className="btn l2-btn menuLinks">Mentor Advisor</button>
-          </NavLink>
-          <NavLink to="/school-village" onClick={() => setVisible(true)}>
-            <button className="btn l2-btn menuLinks">School/Village</button>
-          </NavLink>
-          <NavLink to="/library" onClick={() => setVisible(true)}>
-            <button className="btn l2-btn menuLinks">Library</button>
           </NavLink>
           <NavLink to="/student-search" onClick={() => setVisible(true)}>
             <button className="btn l2-btn menuLinks">
@@ -159,10 +126,10 @@ const mapStateToProps = state => {
     loggedIn: state.authReducer.loggedIn,
     userId: state.authReducer.userId,
     role: state.authReducer.role,
-    profile: state.headmasterReducer.headmasterProfile,
+    profile: state.teacherReducer.teacherProfile,
   };
 };
 
-export default connect(mapStateToProps, { fetchHeadmasterProfile })(
-  HeadmasterDashboard
+export default connect(mapStateToProps, { fetchTeacherProfile })(
+  TeacherDashboard
 );
