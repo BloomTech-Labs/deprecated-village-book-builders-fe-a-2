@@ -23,14 +23,32 @@ function ResourceDashboard() {
           </div>
 
           <div className="resource">
-            <a href="https://icon-icons.com/icons2/2389/PNG/96/notion_logo_icon_145025.png">
-              <img src="https://www.notion.com" alt="notion-logo" />
+            <a href="https://www.notion.com">
+              <img
+                className="logoimg"
+                src="https://icon-icons.com/icons2/2389/PNG/96/notion_logo_icon_145025.png"
+                alt="notion-logo"
+              />
             </a>
           </div>
 
           <div className="resource">
             <a href="https://icon-icons.com/icons2/2389/PNG/96/notion_logo_icon_145025.png">
-              <img src="https://www.notion.com" alt="notion-logo" />
+              <img
+                className="logoimg"
+                src="public/images/khanlogo.jpg"
+                alt="Khan Academy logo"
+              />
+            </a>
+          </div>
+
+          <div className="resource">
+            <a href="https://www.ixl.com">
+              <img
+                className="logoimg"
+                src="public/images/ixllogo.png"
+                alt="ixl logo"
+              />
             </a>
           </div>
         </div>
