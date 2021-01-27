@@ -2,58 +2,60 @@ import React from 'react';
 
 function ResourceDashboard() {
   return (
-    <div className="resource-dash-container">
-      <nav className="top-nav">
-        <ul>
-          <li>Login</li>
-          <li>Profile</li>
-          <li>home</li>
-        </ul>
-      </nav>
-      <div classname="resorce-links-container">
-        <div>
-          <div className="resource">
-            <a href="https://lh3.googleusercontent.com/0cDOOJjp8pUGDDFLqHFITEi35uMGZ5wHpZ9KTKridxk71kpR9MfeydpQqG5n8Mvetvkg5iVuZGeL2xMvxgBY_UL-T9p0x_Eo4EAh">
-              <img
-                className="logoimg"
-                src="public/images/glogo.png"
-                alt="google logo"
-              />
-            </a>
-          </div>
+    <>
+      <div className="resource-dash-container">
+        <nav className="top-nav">
+          <ul>
+            <li>Login</li>
+            <li>Profile</li>
+            <li>home</li>
+          </ul>
+        </nav>
 
-          <div className="resource">
-            <a href="https://www.notion.com">
-              <img
-                className="logoimg"
-                src="https://icon-icons.com/icons2/2389/PNG/96/notion_logo_icon_145025.png"
-                alt="notion-logo"
-              />
-            </a>
-          </div>
+        <div classname="resorce-links-container">
+          <div>
+            <div classsName="resource">
+              <a href="https://www.notion.com">
+                Click here to visit notion.
+                <img
+                  src="public/images/notion-1693557-1442598.jpg.png"
+                  alt="noition-logo"
+                />
+              </a>
+            </div>
 
-          <div className="resource">
-            <a href="https://icon-icons.com/icons2/2389/PNG/96/notion_logo_icon_145025.png">
-              <img
-                className="logoimg"
-                src="public/images/khanlogo.jpg"
-                alt="Khan Academy logo"
-              />
-            </a>
-          </div>
+            <div className="resource">
+              <a href="https://www.khanacademy.org/">
+                {' '}
+                Click here to visit Khan Academy.
+                <img src="public/images/khanlogo.jpg.jpg" alt="khan-logo" />
+              </a>
+            </div>
 
-          <div className="resource">
-            <a href="https://www.ixl.com">
-              <img
-                className="logoimg"
-                src="public/images/ixllogo.png"
-                alt="ixl logo"
-              />
-            </a>
+            <div className="resource">
+              <a href="https://www.k5learning.com/">
+                Visit k-5learning.
+                <img src="k5learning logo here" alt="k5-logo" />
+              </a>
+            </div>
+
+            <div className="resource">
+              <a href="https://www.ixl.com/">
+                Click Here t ovisit IXL.com"
+                <img src="public/images/ixllogo.png" alt="ixl logo" />
+              </a>
+            </div>
+
+            <div className="resource-link">
+              <a href="https://www.math-drills.com/">
+                Takle me to Math-drills!
+                <img src="public/images/mathlogo.jpg" alt="math drills logo." />
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
